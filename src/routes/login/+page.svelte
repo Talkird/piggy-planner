@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { auth } from '$lib/firebase/firebase';
-	import { signInWithEmailAndPassword } from 'firebase/auth';
+	import { login } from '$lib/stores/auth';
 	import Button from '$lib/components/ui/Button.svelte';
 	import Input from '$lib/components/ui/Input.svelte';
 
@@ -11,7 +10,7 @@
 		event.preventDefault();
 
 		try {
-			const userCredential = await signInWithEmailAndPassword(auth, email, password);
+			login(email, password);
 			email = '';
 			password = '';
 		} catch (error) {

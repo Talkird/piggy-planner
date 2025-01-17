@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { auth } from '$lib/firebase/firebase';
-	import { createUserWithEmailAndPassword } from 'firebase/auth';
 	import Button from '$lib/components/ui/Button.svelte';
 	import Input from '$lib/components/ui/Input.svelte';
+	import { register } from '$lib/stores/auth';
 
 	let email = $state('');
 	let password = $state('');
@@ -17,7 +16,7 @@
 		}
 
 		try {
-			const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+			register(email, password);
 			email = '';
 			password = '';
 			confirmPassword = '';
