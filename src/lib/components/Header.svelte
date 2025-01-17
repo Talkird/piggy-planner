@@ -14,7 +14,9 @@
 >
 	<div class="flex items-center gap-3">
 		<Link variant="ghost" href="/" class="text-xl">PiggyPlanner</Link>
-		<Link variant="ghost" href="/dashboard">Dashboard</Link>
+		{#if $currentUser}
+			<Link variant="ghost" href="/dashboard">Dashboard</Link>
+		{/if}
 	</div>
 
 	<div class="flex items-center gap-3">
